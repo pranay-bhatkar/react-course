@@ -11,7 +11,7 @@ export async function GET(request) {
   //     data: data,
   //   });
 
-  
+
   const apiUrl = new URL("https://jsonplaceholder.typicode.com/todos");
   searchParams.forEach((key, value) => {
     apiUrl.searchParams.append(value, key);
@@ -24,3 +24,5 @@ export async function GET(request) {
     data: data,
   });
 }
+
+

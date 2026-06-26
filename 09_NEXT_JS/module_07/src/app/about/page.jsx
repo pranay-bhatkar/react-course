@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import Link from "next/link";
 import React from "react";
 
 // const roboto_mono = Roboto_Mono({
@@ -14,6 +15,7 @@ const myFont = localFont({
 const AboutPage = () => {
   return (
     <section className={`text-gray-600 body-${myFont.className}`}>
+      <Link href={"/"}>Go to Home Page</Link>
       <div className="container px-5 py-24 mx-auto">
         <h1 className="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">
           Raw Denim Heirloom Man Braid

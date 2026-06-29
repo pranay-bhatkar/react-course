@@ -31,3 +31,33 @@ export async function getTodo() {
     return { error: "Failed to fetch todos" };
   }
 }
+
+export async function toggleTodo(id, completed) {
+  await connectDB();
+
+  try {
+    const updateTodo = await Todo.findByIdAndUpdate(
+      id,
+      { completed },
+      { new: true },
+    );
+    return JSON.parse(JSON.stringify(updateTodo));
+  } catch (error) {
+    console.error("failed to toggle todos : ", error);
+    return { error: "Failed to toggle todos" };
+  }
+}
+
+export async function deleteTodo(id) {
+  await connectDB();
+
+  try {
+    const deleteTodo = await Todo.findByIdAndDelete(id);
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error("failed to delete todos : ", error);
+    return { error: "Failed to delete todos" };
+  }
+}
